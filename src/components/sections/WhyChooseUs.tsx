@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
     return (
         <section className='relative py-24'>
             {/* Background decoration */}
-            <div className='absolute inset-0 bg-gradient-to-b from-white via-pink-50/30 to-white'></div>
+            <div className='absolute inset-0 bg-gradient-to-b from-white via-pink-100/50 to-white'></div>
 
             <motion.div
                 className='container mx-auto px-4'

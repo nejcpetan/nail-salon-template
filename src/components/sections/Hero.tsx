@@ -9,7 +9,7 @@ const Hero = () => {
         <section className='relative flex min-h-[90vh] items-center overflow-hidden'>
             {/* Background Elements */}
             <div className='absolute inset-0 z-0'>
-                <div className='absolute inset-0 bg-gradient-to-br from-pink-100/50 via-white to-purple-100/50'></div>
+                <div className='absolute inset-0 bg-gradient-to-br from-pink-200/70 via-white to-purple-200/70'></div>
                 <Image
                     src='/images/20241128094506, output_x4_00001_.png'
                     alt='Umetnost nohtov'
@@ -21,8 +21,8 @@ const Hero = () => {
 
             {/* Floating Elements */}
             <div className='absolute inset-0 overflow-hidden'>
-                <div className='absolute left-10 top-20 size-64 rounded-full bg-pink-300/10 blur-3xl'></div>
-                <div className='absolute bottom-20 right-10 size-64 rounded-full bg-purple-300/10 blur-3xl'></div>
+                <div className='absolute left-10 top-20 size-64 rounded-full bg-pink-400/20 blur-3xl'></div>
+                <div className='absolute bottom-20 right-10 size-64 rounded-full bg-purple-400/20 blur-3xl'></div>
             </div>
 
             <div className='container relative z-10 mx-auto px-4'>

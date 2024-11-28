@@ -43,7 +43,7 @@ const item = {
 const Services = () => {
     return (
         <section className='relative overflow-hidden py-24'>
-            <div className='absolute inset-0 bg-gradient-to-t from-white via-purple-50/30 to-white'></div>
+            <div className='absolute inset-0 bg-gradient-to-t from-white via-purple-100/50 to-white'></div>
 
             <motion.div
                 className='container mx-auto px-4'
