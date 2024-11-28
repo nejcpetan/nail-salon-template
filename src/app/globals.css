@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: 24 100% 95%;
+    --foreground: 24 5% 0%;
+    --card: 24 50% 90%;
+    --card-foreground: 24 5% 10%;
+    --popover: 24 100% 95%;
+    --popover-foreground: 24 100% 0%;
+    --primary: 24 34.4% 74.3%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 24 30% 70%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: -14 30% 85%;
+    --muted-foreground: 24 5% 35%;
+    --accent: -14 30% 80%;
+    --accent-foreground: 24 5% 10%;
+    --destructive: 0 100% 30%;
+    --destructive-foreground: 24 5% 90%;
+    --border: 24 30% 50%;
+    --input: 24 30% 18%;
+    --ring: 24 34.4% 74.3%;
+    --radius: 0.5rem;
+}
+.dark {
+    --background: 24 50% 5%;
+    --foreground: 24 5% 90%;
+    --card: 24 50% 0%;
+    --card-foreground: 24 5% 90%;
+    --popover: 24 50% 5%;
+    --popover-foreground: 24 5% 90%;
+    --primary: 24 34.4% 74.3%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 24 30% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: -14 30% 15%;
+    --muted-foreground: 24 5% 60%;
+    --accent: -14 30% 15%;
+    --accent-foreground: 24 5% 90%;
+    --destructive: 0 100% 30%;
+    --destructive-foreground: 24 5% 90%;
+    --border: 24 30% 18%;
+    --input: 24 30% 18%;
+    --ring: 24 34.4% 74.3%;
+    --radius: 0.5rem;
+}
+
+body {
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+}
+
+.hero-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none' /%3E%3Cpath d='M0 0h60v60H0z' fill='%23f9f9f9' fill-opacity='0.4'/%3E%3C/svg%3E");
+}
