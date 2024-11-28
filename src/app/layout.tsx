@@ -32,7 +32,7 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
                 <ThemeProvider attribute='class'>
                     <div className='flex min-h-screen flex-col'>
                         <Header />
-                        <main className='flex-1'>{children}</main>
+                        <main className='flex-1 pt-[104px]'>{children}</main>
                         <Footer />
                     </div>
                 </ThemeProvider>
