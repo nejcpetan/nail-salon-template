@@ -82,9 +82,9 @@ const WhyChooseUs = () => {
                             key={index}
                             variants={item}
                             className='group relative rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-md'>
-                            <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-500/5 to-purple-500/5 opacity-0 transition-opacity group-hover:opacity-100'></div>
+                            <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-[#ec4899]/5 to-[#a855f7]/5 opacity-0 transition-opacity group-hover:opacity-100'></div>
                             <div className='relative z-10'>
-                                <div className='mb-4 inline-block rounded-xl bg-gradient-to-br from-pink-500/10 to-purple-500/10 p-3 text-pink-500'>
+                                <div className='mb-4 inline-block rounded-xl bg-gradient-to-br from-[#ec4899]/10 to-[#a855f7]/10 p-3 text-[#ec4899]'>
                                     {feature.icon}
                                 </div>
                                 <h3 className='mb-2 text-xl font-semibold'>{feature.title}</h3>
