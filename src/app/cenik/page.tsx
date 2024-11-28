@@ -57,7 +57,7 @@ const PricingPage = () => {
                     className='mb-16 text-center'
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}>
-                    <h1 className='mb-6 text-4xl font-bold md:text-5xl'>Naš Cenik</h1>
+                    <h1 className='mb-6 text-4xl font-bold text-black md:text-5xl'>Naš Cenik</h1>
                     <p className='mx-auto max-w-2xl text-lg text-gray-600'>
                         Transparentne cene za profesionalne storitve, prilagojene vašim željam
                     </p>

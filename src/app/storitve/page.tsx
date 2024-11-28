@@ -12,28 +12,28 @@ const services = [
             'Popolna osnovna nega vaših rok in nohtov. Vključuje oblikovanje, nego obnohtne kožice in lakiranje po izbiri.',
         duration: '45 min',
         features: ['Oblikovanje nohtov', 'Nega obnohtne kožice', 'Lakiranje', 'Masaža rok'],
-        image: '/images/20241128094506, output_x4_00001_.png'
+        image: '/images/rose-smoke-2.png'
     },
     {
         title: 'Gel Nohti',
         description: 'Profesionalno podaljševanje in oblikovanje nohtov z gelom za dolgotrajne in čudovite rezultate.',
         duration: '90 min',
         features: ['Podaljševanje nohtov', 'Oblikovanje po želji', 'Gel premaz', 'Možnost dekoracije'],
-        image: '/images/20241128094506, output_x4_00002_.png'
+        image: '/images/nails-1.png'
     },
     {
         title: 'Permanentno Lakiranje',
         description: 'Dolgotrajno lakiranje z UV utrjevanjem za sijoč in obstojen videz vaših nohtov.',
         duration: '60 min',
         features: ['Priprava nohtov', 'UV lakiranje', 'Dolgotrajen sijaj', 'Zaščitni premaz'],
-        image: '/images/20241128094506, output_x4_00003_.png'
+        image: '/images/rose-smoke-1.png'
     },
     {
         title: 'Nail Art & Dekoracija',
         description: 'Umetniško oblikovanje in dekoracija nohtov po vaših željah za edinstven videz.',
         duration: '30-60 min',
         features: ['Unikatni dizajni', 'Kristalčki', 'Ročno slikanje', '3D dekoracije'],
-        image: '/images/20241128094506, output_x4_00004_.png'
+        image: '/images/rose-smoke-4.png'
     }
 ];
 
@@ -58,7 +58,7 @@ const ServicesPage = () => {
                     className='mb-16 text-center'
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}>
-                    <h1 className='mb-6 text-4xl font-bold md:text-5xl'>Naše Storitve</h1>
+                    <h1 className='mb-6 text-4xl font-bold text-black md:text-5xl'>Naše Storitve</h1>
                     <p className='mx-auto max-w-2xl text-lg text-gray-600'>
                         Odkrijte našo paleto profesionalnih storitev, prilagojenih vašim željam in potrebam
                     </p>

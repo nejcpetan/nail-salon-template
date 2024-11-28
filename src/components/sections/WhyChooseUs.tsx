@@ -44,25 +44,25 @@ const item = {
 const WhyChooseUs = () => {
     return (
         <section className='relative py-24'>
-            {/* Background decoration */}
-            <div className='absolute inset-0 bg-gradient-to-b from-white via-pink-100/50 to-white'></div>
+            {/* Background decoration - move to lower z-index */}
+            <div className='absolute inset-0 -z-10 bg-gradient-to-b from-white via-pink-100/50 to-white'></div>
 
             <motion.div
-                className='container mx-auto px-4'
+                className='container relative z-10 mx-auto px-4'
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}>
-                <div className='mb-16 text-center'>
+                <div className='relative z-20 mb-16 text-center'>
                     <motion.h2
-                        className='mb-4 text-3xl font-bold md:text-4xl'
+                        className='mb-4 text-3xl font-bold text-black md:text-4xl'
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}>
                         Zakaj Izbrati Nas
                     </motion.h2>
                     <motion.p
-                        className='mx-auto max-w-2xl text-gray-600'
+                        className='mx-auto max-w-2xl text-black'
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -88,7 +88,7 @@ const WhyChooseUs = () => {
                                     {feature.icon}
                                 </div>
                                 <h3 className='mb-2 text-xl font-semibold'>{feature.title}</h3>
-                                <p className='text-gray-600'>{feature.description}</p>
+                                <p className='text-black'>{feature.description}</p>
                             </div>
                         </motion.div>
                     ))}

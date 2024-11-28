@@ -8,19 +8,19 @@ const services = [
     {
         title: 'Klasična Manikura',
         description: 'Popolna nega vaših rok in nohtov',
-        image: '/images/20241128094506, output_x4_00001_.png',
+        image: '/images/rose-smoke-2.png',
         price: 'od 25€'
     },
     {
         title: 'Gel Nohti',
         description: 'Dolgotrajni in čudoviti nohti',
-        image: '/images/20241128094506, output_x4_00002_.png',
+        image: '/images/nails-1.png',
         price: 'od 45€'
     },
     {
         title: 'Nail Art',
         description: 'Unikatni dizajni po vaši želji',
-        image: '/images/20241128094506, output_x4_00003_.png',
+        image: '/images/rose-smoke-1.png',
         price: 'od 15€'
     }
 ];
@@ -43,19 +43,19 @@ const item = {
 const Services = () => {
     return (
         <section className='relative overflow-hidden py-24'>
-            <div className='absolute inset-0 bg-gradient-to-t from-white via-purple-100/50 to-white'></div>
+            <div className='absolute inset-0 -z-10 bg-gradient-to-t from-white via-purple-100/50 to-white'></div>
 
             <motion.div
-                className='container mx-auto px-4'
+                className='container relative z-10 mx-auto px-4'
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}>
                 <motion.div
-                    className='mb-16 text-center'
+                    className='relative z-20 mb-16 text-center'
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}>
-                    <h2 className='mb-4 text-3xl font-bold md:text-4xl'>Naše Storitve</h2>
+                    <h2 className='mb-4 text-3xl font-bold text-black md:text-4xl'>Naše Storitve</h2>
                     <p className='mx-auto max-w-2xl text-gray-600'>
                         Izberite med našimi profesionalnimi storitvami za popoln videz vaših nohtov
                     </p>

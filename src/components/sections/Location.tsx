@@ -8,7 +8,7 @@ const Location = () => {
         <section className='bg-gradient-to-b from-white via-pink-50/30 to-white py-16'>
             <div className='container mx-auto px-4'>
                 <motion.h2
-                    className='mb-12 text-center text-3xl font-bold md:text-4xl'
+                    className='mb-12 text-center text-3xl font-bold text-black md:text-4xl'
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}>

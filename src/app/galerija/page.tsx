@@ -1,34 +1,33 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 
-import { motion } from 'framer-motion';
-import { X } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const images = [
     {
-        src: '/images/20241128094506, output_x4_00001_.png',
+        src: '/images/cotton-candy-smoke-1.png',
         title: 'Klasična Manikura',
         category: 'Manikura'
     },
     {
-        src: '/images/20241128094506, output_x4_00002_.png',
+        src: '/images/brush-strokes-1.png',
         title: 'Gel Nohti',
         category: 'Gel'
     },
     {
-        src: '/images/20241128094506, output_x4_00003_.png',
+        src: '/images/rose-smoke-1.png',
         title: 'Nail Art',
         category: 'Dekoracija'
     },
     {
-        src: '/images/20241128094506, output_x4_00004_.png',
+        src: '/images/rose-smoke-2.png',
         title: 'Umetniški Dizajn',
         category: 'Nail Art'
     }
-    // Add more images as needed
 ];
 
 const categories = ['Vse', 'Manikura', 'Gel', 'Dekoracija', 'Nail Art'];
@@ -37,9 +36,7 @@ const container = {
     hidden: { opacity: 0 },
     show: {
         opacity: 1,
-        transition: {
-            staggerChildren: 0.1
-        }
+        transition: { staggerChildren: 0.1 }
     }
 };
 
@@ -49,10 +46,45 @@ const item = {
 };
 
 const GalleryPage = () => {
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
     const [selectedCategory, setSelectedCategory] = useState('Vse');
 
     const filteredImages = images.filter((img) => selectedCategory === 'Vse' || img.category === selectedCategory);
+
+    // Add keyboard navigation
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (selectedImageIndex === null) return;
+
+            if (e.key === 'ArrowLeft') {
+                setSelectedImageIndex(selectedImageIndex === 0 ? filteredImages.length - 1 : selectedImageIndex - 1);
+            }
+            if (e.key === 'ArrowRight') {
+                setSelectedImageIndex(selectedImageIndex === filteredImages.length - 1 ? 0 : selectedImageIndex + 1);
+            }
+            if (e.key === 'Escape') {
+                setSelectedImageIndex(null);
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [selectedImageIndex, filteredImages.length]);
+
+    const handlePrevious = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (selectedImageIndex !== null) {
+            setSelectedImageIndex(selectedImageIndex === 0 ? filteredImages.length - 1 : selectedImageIndex - 1);
+        }
+    };
+
+    const handleNext = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (selectedImageIndex !== null) {
+            setSelectedImageIndex(selectedImageIndex === filteredImages.length - 1 ? 0 : selectedImageIndex + 1);
+        }
+    };
 
     return (
         <div className='min-h-screen bg-gradient-to-b from-pink-50/50 via-white to-pink-50/50 py-24'>
@@ -61,7 +93,7 @@ const GalleryPage = () => {
                     className='mb-16 text-center'
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}>
-                    <h1 className='mb-6 text-4xl font-bold md:text-5xl'>Naša Galerija</h1>
+                    <h1 className='mb-6 text-4xl font-bold text-black md:text-5xl'>Naša Galerija</h1>
                     <p className='mx-auto mb-12 max-w-2xl text-lg text-gray-600'>
                         Oglejte si naše najnovejše kreacije in najljubše dizajne
                     </p>
@@ -94,14 +126,14 @@ const GalleryPage = () => {
                         <motion.div
                             key={index}
                             variants={item}
-                            className='group relative aspect-square overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-md'
+                            className='group relative aspect-square cursor-pointer overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-md'
+                            onClick={() => setSelectedImageIndex(index)}
                             whileHover={{ y: -5 }}>
                             <Image
                                 src={image.src}
                                 alt={image.title}
                                 fill
                                 className='object-cover transition-transform duration-500 group-hover:scale-110'
-                                onClick={() => setSelectedImage(image.src)}
                             />
                             <div className='absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
                                 <div className='absolute inset-x-0 bottom-0 p-4 text-white'>
@@ -114,33 +146,59 @@ const GalleryPage = () => {
                 </motion.div>
 
                 {/* Lightbox */}
-                {selectedImage && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className='fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4'
-                        onClick={() => setSelectedImage(null)}>
-                        <button
-                            className='absolute right-4 top-4 text-white transition-colors hover:text-pink-500'
-                            onClick={() => setSelectedImage(null)}>
-                            <X size={32} />
-                        </button>
+                <AnimatePresence>
+                    {selectedImageIndex !== null && (
                         <motion.div
-                            initial={{ scale: 0.95 }}
-                            animate={{ scale: 1 }}
-                            className='relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl'
-                            onClick={(e) => e.stopPropagation()}>
-                            <Image
-                                src={selectedImage}
-                                alt='Selected work'
-                                width={1200}
-                                height={800}
-                                className='object-contain'
-                            />
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className='fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm'
+                            onClick={() => setSelectedImageIndex(null)}>
+                            {/* Navigation Buttons */}
+                            <button
+                                className='absolute left-4 z-50 cursor-pointer rounded-full bg-white/10 p-4 text-white backdrop-blur-sm transition-colors hover:bg-white/20'
+                                onClick={handlePrevious}>
+                                <ChevronLeft size={24} />
+                            </button>
+                            <button
+                                className='absolute right-4 z-50 cursor-pointer rounded-full bg-white/10 p-4 text-white backdrop-blur-sm transition-colors hover:bg-white/20'
+                                onClick={handleNext}>
+                                <ChevronRight size={24} />
+                            </button>
+
+                            {/* Close Button */}
+                            <button
+                                className='absolute right-4 top-4 z-50 cursor-pointer rounded-full bg-white/10 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/20'
+                                onClick={() => setSelectedImageIndex(null)}>
+                                <X size={24} />
+                            </button>
+
+                            {/* Image Container */}
+                            <motion.div
+                                initial={{ scale: 0.95, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.95, opacity: 0 }}
+                                className='relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm'
+                                onClick={(e) => e.stopPropagation()}>
+                                <Image
+                                    src={filteredImages[selectedImageIndex].src}
+                                    alt={filteredImages[selectedImageIndex].title}
+                                    width={1200}
+                                    height={800}
+                                    className='object-contain'
+                                    priority
+                                />
+                                {/* Image Info */}
+                                <div className='absolute bottom-0 w-full bg-gradient-to-t from-black/50 to-transparent p-6 text-white'>
+                                    <h3 className='text-xl font-semibold'>
+                                        {filteredImages[selectedImageIndex].title}
+                                    </h3>
+                                    <p className='text-sm opacity-75'>{filteredImages[selectedImageIndex].category}</p>
+                                </div>
+                            </motion.div>
                         </motion.div>
-                    </motion.div>
-                )}
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );

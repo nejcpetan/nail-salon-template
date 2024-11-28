@@ -12,7 +12,7 @@ const Hero = () => {
                 <div className='absolute inset-0 bg-[#fce7f3] bg-opacity-70'></div>
                 <div className='absolute inset-0 bg-gradient-to-br from-[#ec4899]/30 via-white to-[#a855f7]/30'></div>
                 <Image
-                    src='/images/20241128094506, output_x4_00001_.png'
+                    src='/images/brush-stroke-cotton-candy-smoke.png'
                     alt='Umetnost nohtov'
                     fill
                     className='scale-110 object-cover opacity-20 transition-transform duration-1000 hover:scale-105'
